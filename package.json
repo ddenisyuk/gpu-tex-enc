@@ -31,7 +31,7 @@
     "packages/@gpu-tex-enc/*"
   ],
   "devDependencies": {
-    "lerna": "^8.0.0",
+    "lerna": "^7.4.2",
     "yarn": "^1.22.21"
   },
   "scripts": {
