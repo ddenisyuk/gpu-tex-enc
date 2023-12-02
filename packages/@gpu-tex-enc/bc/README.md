@@ -52,10 +52,6 @@ The source code is available on GitHub:
 
 [github.com/ddenisyuk/gpu-tex-enc](https://github.com/ddenisyuk/gpu-tex-enc)
 
-## Author
-
-Denys Denysiuk <denisyuk.d@gmail.com>
-
 ## License
 
 Licensed under the Apache-2.0 License.
