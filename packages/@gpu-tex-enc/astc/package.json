@@ -1,0 +1,51 @@
+{
+  "name": "@gpu-tex-enc/astc",
+  "version": "4.6.1",
+  "description": "Compressing images using the ASTC texture compression standard.",
+  "main": "index.js",
+  "types": "types.d.ts",
+
+  "keywords": [
+    "compression",
+    "image-compression",
+    "astc",
+    "astcenc",
+    "GPUTexEncoder"
+  ],
+  "author": "Denys Denysiuk <denisyuk.d@gmail.com>",
+  "license": "Apache-2.0",
+  "bin": {
+    "astcenc-linux-x64-avx2": "./bin/linux-x64/astcenc-avx2",
+    "astcenc-linux-x64-sse2": "./bin/linux-x64/astcenc-sse2",
+    "astcenc-linux-x64-sse4.1": "./bin/linux-x64/astcenc-sse4.1",
+
+    "astcenc-win32-x64-avx2": "./bin/win32-x64/astcenc-avx2.exe",
+    "astcenc-win32-x64-sse2": "./bin/win32-x64/astcenc-sse2.exe",
+    "astcenc-win32-x64-sse4.1": "./bin/win32-x64/astcenc-sse4.1.exe",
+
+    "astcenc-win32-arm64-avx2": "./bin/win32-arm64/astcenc-neon.exe",
+    "astcenc-win32-arm64-sse2": "./bin/win32-arm64/astcenc-neon.exe",
+    "astcenc-win32-arm64-sse4.1": "./bin/win32-arm64/astcenc-neon.exe",
+
+    "astcenc-darwin-x64-avx2": "./bin/darwin/astcenc",
+    "astcenc-darwin-x64-sse2": "./bin/darwin/astcenc",
+    "astcenc-darwin-x64-sse4.1": "./bin/darwin/astcenc",
+
+    "astcenc-darwin-arm64-avx2": "./bin/darwin/astcenc",
+    "astcenc-darwin-arm64-sse2": "./bin/darwin/astcenc",
+    "astcenc-darwin-arm64-sse4.1": "./bin/darwin/astcenc"
+  },
+  "dependencies": {
+    "cpu-features": "^0.0.9"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ddenisyuk/gpu-tex-enc.git"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@gpu-tex-enc/etc",
+  "version": "1.0.0",
+  "description": "Compressing images using the ETC & ETC2 texture compression standard.",
+  "main": "index.js",
+  "types": "types.d.ts",
+  "keywords": [
+    "compression",
+    "image-compression",
+    "etc1",
+    "etc2",
+    "etc2comp",
+    "EtcTool",
+    "GPUTexEncoder"
+  ],
+  "author": "Denys Denysiuk <denisyuk.d@gmail.com>",
+  "license": "Apache-2.0",
+  "bin": {
+    "etc2comp-linux": "",
+    "etc2comp-win32": "./bin/win32/EtcTool.exe",
+    "etc2comp-darwin": "./bin/darwin/EtcTool"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ddenisyuk/gpu-tex-enc.git"
+  }
+}

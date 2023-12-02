@@ -1,0 +1,55 @@
+{
+  "name": "gpu-tex-enc",
+  "version": "1.0.0",
+  "description": "API and CLI for compressing images using the ASTC, ETC, ETC2, BCn (DXTn) texture compression standard.",
+  "bin": {
+    "gputexenc": "./src/cli.js"
+  },
+  "main": "./src/index.js",
+  "types": "./src/types.d.ts",
+  "keywords": [
+    "compression",
+    "image-compression",
+    "astc",
+    "astcenc",
+    "etc1",
+    "etc2",
+    "etc2comp",
+    "EtcTool",
+    "bc1",
+    "bc2",
+    "bc3",
+    "bc4",
+    "bc5",
+    "dxt1",
+    "dxt3",
+    "dxt5",
+    "bc7",
+    "bc7enc",
+    "GPUTexEncoder"
+  ],
+  "author": "Denys Denysiuk <denisyuk.d@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@gpu-tex-enc/astc": "4.6.1",
+    "@gpu-tex-enc/bc": "1.0.8",
+    "@gpu-tex-enc/etc": "1.0.0",
+    "yargs": "^17.7.2"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.33.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ddenisyuk/gpu-tex-enc.git"
+  }
+}

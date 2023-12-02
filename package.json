@@ -1,0 +1,47 @@
+{
+  "private": true,
+  "name": "gpu-tex-enc",
+  "version": "1.0.0",
+  "description": "API and CLI for compressing images using the ASTC, ETC, ETC2, BCn (DXTn) texture compression standard.",
+  "keywords": [
+    "compression",
+    "image-compression",
+    "astc",
+    "astcenc",
+    "etc1",
+    "etc2",
+    "etc2comp",
+    "EtcTool",
+    "bc1",
+    "bc2",
+    "bc3",
+    "bc4",
+    "bc5",
+    "dxt1",
+    "dxt3",
+    "dxt5",
+    "bc7",
+    "bc7enc",
+    "GPUTexEncoder"
+  ],
+  "author": "Denys Denysiuk <denisyuk.d@gmail.com>",
+  "license": "Apache-2.0",
+  "workspaces": [
+    "packages/gpu-tex-enc",
+    "packages/@gpu-tex-enc/*"
+  ],
+  "devDependencies": {
+    "lerna": "^8.0.0",
+    "yarn": "^1.22.21"
+  },
+  "scripts": {
+    "release": "lerna publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ddenisyuk/gpu-tex-enc.git"
+  },
+  "dependencies": {
+    "@img/sharp-darwin-x64": "^0.33.0"
+  }
+}
