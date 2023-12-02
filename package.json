@@ -40,8 +40,5 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/ddenisyuk/gpu-tex-enc.git"
-  },
-  "dependencies": {
-    "@img/sharp-darwin-x64": "^0.33.0"
   }
 }
