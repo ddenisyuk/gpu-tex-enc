@@ -32,8 +32,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@gpu-tex-enc/astc": "4.6.1",
-    "@gpu-tex-enc/bc": "1.0.8",
-    "@gpu-tex-enc/etc": "1.0.0",
+    "@gpu-tex-enc/bc": "1.0.9",
+    "@gpu-tex-enc/etc": "1.0.1",
     "yargs": "^17.7.2"
   },
   "optionalDependencies": {
