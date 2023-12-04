@@ -36,7 +36,7 @@ const bcCompressor = require('@gpu-tex-enc/bc');
 
 The package includes the following pre-compiled binaries:
 
-- Linux: `bc7enc-linux`
+- Linux: `bc7enc-linux` (located in `./bin/linux/bc7enc`)
 - Windows: `bc7enc-win32` (located in `./bin/win32/bc7enc.exe`)
 - Darwin: `bc7enc-darwin` (located in `./bin/darwin/bc7enc`)
 

@@ -36,7 +36,7 @@ const etcCompressor = require('@gpu-tex-enc/etc');
 
 Included pre-compiled binaries:
 
-- Linux: `etc2comp-linux`
+- Linux: `etc2comp-linux` (located in `./bin/linux/EtcTool`)
 - Windows: `etc2comp-win32` (located in `./bin/win32/EtcTool.exe`)
 - Darwin: `etc2comp-darwin` (located in `./bin/darwin/EtcTool`)
 

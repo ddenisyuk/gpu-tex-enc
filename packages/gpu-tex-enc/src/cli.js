@@ -62,7 +62,7 @@ const argv = yargs(hideBin(process.argv))
         'etc.options': {
             description: "<options> [etc2comp] another options, see etc2comp official documentation",
             array: true,
-            default: ['-j', require('os').cpus().length]
+            default: ['-j', require('os').cpus().length, '-v']
         }
     }).argv;
 

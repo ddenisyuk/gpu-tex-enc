@@ -3,7 +3,7 @@ const path = require("path");
 const bins = require('./package.json').bin;
 
 module.exports = {
-    generate(input, format = 'RGBA8', effort = 100, errormetric = 'rgbx', options = ['-j', require('os').cpus().length]) {
+    generate(input, format = 'RGBA8', effort = 100, errormetric = 'rgbx', options = ['-j', require('os').cpus().length, '-v']) {
 
         const etctool = executable();
         try {

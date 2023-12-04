@@ -1,6 +1,6 @@
 {
   "name": "@gpu-tex-enc/bc",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Compressing images using the BC1 (DXT1), BC2 (DXT3), BC3 (DXT5), BC4, BC5 & BC7 texture compression standard.",
   "main": "index.js",
   "types": "types.d.ts",
@@ -22,7 +22,7 @@
   "author": "Denys Denysiuk <denisyuk.d@gmail.com>",
   "license": "Apache-2.0",
   "bin": {
-    "bc7enc-linux": "",
+    "bc7enc-linux": "./bin/linux/bc7enc",
     "bc7enc-win32": "./bin/win32/bc7enc.exe",
     "bc7enc-darwin": "./bin/darwin/bc7enc"
   },
