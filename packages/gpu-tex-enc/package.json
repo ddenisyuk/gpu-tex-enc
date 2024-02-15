@@ -42,6 +42,9 @@
   "engines": {
     "node": ">=18.0.0"
   },
+  "scripts": {
+    "release": "npm publish --access public"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

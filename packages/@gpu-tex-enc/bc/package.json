@@ -27,6 +27,9 @@
     "bc7enc-darwin-x64": "bin/darwin-x64/bc7enc",
     "bc7enc-darwin-arm64": "bin/darwin-arm64/bc7enc"
   },
+  "scripts": {
+    "release": "npm publish --access public"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
