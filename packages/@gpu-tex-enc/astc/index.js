@@ -4,7 +4,7 @@ const features = require('cpu-features')();
 const bins = require('./package.json').bin;
 
 module.exports = {
-    generate(input, blocksize = '4x4', quality = 'exhaustive', colorProfile = 'cl', options = []) {
+    generate(input, blocksize = '4x4', quality = 'exhaustive', colorProfile = 'cl', options = ['-silent']) {
 
         const astcenc = executable();
         try {
@@ -14,8 +14,8 @@ module.exports = {
 
             const result = childProcess.spawnSync(astcenc, args, {stdio: 'inherit'});
 
-            console.log(`astcenc status ${result.status}`);
             if (result.status !== 0) {
+                console.log(`astcenc status ${result.status}`);
                 throw result.error ? result.error : new Error(`astcenc exit status: ${result.status}`);
             }
 

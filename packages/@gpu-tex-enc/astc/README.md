@@ -44,12 +44,6 @@ The package includes pre-compiled [astcenc](https://github.com/ARM-software/astc
 
 - `cpu-features`: To determine the best binary for your CPU.
 
-## Development
-
-For development, the module uses:
-
-- `@types/node`: TypeScript type definitions for Node.js.
-
 ## Repository
 
 The source code is available on GitHub:

@@ -3,7 +3,7 @@ const path = require("path");
 const bins = require('./package.json').bin;
 
 module.exports = {
-    generate(input, type = 'BC7', options = ['-zc8192', '-z.1', '-hr32', '-o']) {
+    generate(input, type = 'BC7', options = ['-zc8192', '-z.1', '-hr32', '-o', '-q']) {
 
         const bc7enc = executable();
         try {
@@ -13,8 +13,8 @@ module.exports = {
 
             const result = childProcess.spawnSync(bc7enc, args, {stdio: 'inherit'});
 
-            console.log(`bc7enc status ${result.status}`);
             if (result.status !== 0) {
+                console.log(`bc7enc status ${result.status}`);
                 throw result.error ? result.error : new Error(`bc7enc exit status: ${result.status}`);
             }
 
@@ -33,7 +33,12 @@ module.exports = {
 }
 
 function executable() {
-    const bc7enc = bins[`bc7enc-${process.platform}`];
+    let binName = `bc7enc-${process.platform}`;
+    if (process.platform === 'darwin') {
+        binName = `${binName}-${process.arch}`
+    }
+    const bc7enc = bins[binName];
+
     if (bc7enc) {
         return path.resolve(__dirname, bc7enc);
     } else {

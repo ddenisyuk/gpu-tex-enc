@@ -24,10 +24,8 @@
   "bin": {
     "bc7enc-linux": "./bin/linux/bc7enc",
     "bc7enc-win32": "./bin/win32/bc7enc.exe",
-    "bc7enc-darwin": "./bin/darwin/bc7enc"
-  },
-  "devDependencies": {
-    "@types/node": "^18.11.18"
+    "bc7enc-darwin-x64": "bin/darwin-x64/bc7enc",
+    "bc7enc-darwin-arm64": "bin/darwin-arm64/bc7enc"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

@@ -38,11 +38,7 @@ Included pre-compiled binaries:
 
 - Linux: `etc2comp-linux` (located in `./bin/linux/EtcTool`)
 - Windows: `etc2comp-win32` (located in `./bin/win32/EtcTool.exe`)
-- Darwin: `etc2comp-darwin` (located in `./bin/darwin/EtcTool`)
-
-## Development Dependencies
-
-- `@types/node`: TypeScript type definitions for Node.js.
+- Darwin: `etc2comp-darwin-{x64|arm64}` (located in `./bin/darwin-{x64|arm64}/EtcTool`)
 
 ## Repository
 

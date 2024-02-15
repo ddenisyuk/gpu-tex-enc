@@ -39,6 +39,7 @@ const argv = yargs(hideBin(process.argv))
         'astc.options': {
             description: "<options> [astcenc] another options, see astcenc official documentation",
             array: true,
+            default: ['-silent']
         },
         'bc.adjust': {
             description: "<boolean> [bc7enc] According to WEBGL spec texture width and height must be a multiple of 4",
@@ -48,7 +49,7 @@ const argv = yargs(hideBin(process.argv))
         'bc.options': {
             description: "<options> [bc7enc] options, see bc7enc official documentation",
             array: true,
-            default: ['-zc8192', '-z.1', '-hr32', '-o']
+            default: ['-zc8192', '-z.1', '-hr32', '-o', '-q']
         },
         'etc.effort': {
             description: "<amount> [etc2comp] number between 0 and 100 to specify the encoding quality (100 is the highest quality)",
@@ -62,7 +63,7 @@ const argv = yargs(hideBin(process.argv))
         'etc.options': {
             description: "<options> [etc2comp] another options, see etc2comp official documentation",
             array: true,
-            default: ['-j', require('os').cpus().length, '-v']
+            default: ['-j', require('os').cpus().length]
         }
     }).argv;
 
@@ -102,4 +103,5 @@ for (const type of argv.types) {
     }
 }
 
-console.log(generate(argv.input, outputOptions));
+generate(argv.input, outputOptions)
+    .then(result => console.log(result));

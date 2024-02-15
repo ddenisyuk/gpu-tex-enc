@@ -4,7 +4,7 @@ const etcenc = require('@gpu-tex-enc/etc');
 const sharp = require('sharp');
 const fs = require("fs");
 
-function generate(input, outputOptions) {
+async function generate(input, outputOptions) {
     const results = {};
     for (const type in outputOptions) {
         const opts = outputOptions[type];
@@ -15,7 +15,7 @@ function generate(input, outputOptions) {
             case 'BC4':
             case 'BC5':
             case 'BC7': {
-                results[type] = generateBC(input, type, opts.adjust, opts.options);
+                results[type] = await generateBC(input, type, opts.adjust, opts.options);
                 break;
             }
             case 'ETC1':
@@ -25,11 +25,11 @@ function generate(input, outputOptions) {
             case 'RGB8A1':
             case 'SRGB8A1':
             case 'R11': {
-                results[type] = generateETC(input, type, opts.effort, opts.errormetric, opts.options);
+                results[type] = await generateETC(input, type, opts.effort, opts.errormetric, opts.options);
                 break;
             }
             case 'ASTC': {
-                results[type] = generateASTC(input, opts.blocksize, opts.quality, opts.colorProfile, opts.options);
+                results[type] = await generateASTC(input, opts.blocksize, opts.quality, opts.colorProfile, opts.options);
                 break;
             }
             default: {
@@ -40,7 +40,7 @@ function generate(input, outputOptions) {
     return results;
 }
 
-function generateBC(input, type, adjust, options) {
+async function generateBC(input, type, adjust, options) {
     if (adjust) {
         return adjustAndGenerate(input, type, options);
     } else {
@@ -48,11 +48,11 @@ function generateBC(input, type, adjust, options) {
     }
 }
 
-function generateASTC(input, blocksize, quality, colorProfile, options) {
+async function generateASTC(input, blocksize, quality, colorProfile, options) {
     return astcenc.generate(input, blocksize, quality, colorProfile, options);
 }
 
-function generateETC(input, format, effort, errormetric, options) {
+async function generateETC(input, format, effort, errormetric, options) {
     return etcenc.generate(input, format, effort, errormetric, options);
 }
 
@@ -74,7 +74,7 @@ async function adjustAndGenerate(input, type, options) {
                 })
                 .toFile(adjustedInput);
 
-            return bc7enc.generate(adjustedInput, type, options);
+            return bcenc.generate(adjustedInput, type, options);
         } catch (err) {
             console.error("Failed to adjust image", err);
             throw err;
@@ -82,7 +82,7 @@ async function adjustAndGenerate(input, type, options) {
             fs.rmSync(adjustedInput);
         }
     } else {
-        return bc7enc.generate(input, type, options);
+        return bcenc.generate(input, type, options);
     }
 }
 

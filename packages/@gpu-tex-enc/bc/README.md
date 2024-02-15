@@ -38,13 +38,7 @@ The package includes the following pre-compiled binaries:
 
 - Linux: `bc7enc-linux` (located in `./bin/linux/bc7enc`)
 - Windows: `bc7enc-win32` (located in `./bin/win32/bc7enc.exe`)
-- Darwin: `bc7enc-darwin` (located in `./bin/darwin/bc7enc`)
-
-## Development
-
-Development dependencies include:
-
-- `@types/node`: TypeScript definitions for Node.js.
+- Darwin: `bc7enc-darwin-{x64|arm64}` (located in `./bin/darwin-{x64|arm64}/bc7enc`)
 
 ## Repository
 

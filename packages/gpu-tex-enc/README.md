@@ -45,18 +45,11 @@ gputexenc [options]
 - `@gpu-tex-enc/astc`: For ASTC compression.
 - `@gpu-tex-enc/bc`: For BCn compression.
 - `@gpu-tex-enc/etc`: For ETC and ETC2 compression.
-- `yargs`: For parsing command-line arguments.
 - `sharp` (optional): For additional image processing capabilities.
 
 ## Requirements
 
 - Node.js version >= 18.0.0.
-
-## Development
-
-Development dependencies include:
-
-- `@types/node`: TypeScript type definitions for Node.js.
 
 ## Repository
 

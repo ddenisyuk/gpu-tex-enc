@@ -3,7 +3,7 @@ const path = require("path");
 const bins = require('./package.json').bin;
 
 module.exports = {
-    generate(input, format = 'RGBA8', effort = 100, errormetric = 'rgbx', options = ['-j', require('os').cpus().length, '-v']) {
+    generate(input, format = 'RGBA8', effort = 100, errormetric = 'rgbx', options = ['-j', require('os').cpus().length]) {
 
         const etctool = executable();
         try {
@@ -13,8 +13,8 @@ module.exports = {
 
             const result = childProcess.spawnSync(etctool, args, {stdio: 'inherit'});
 
-            console.log(`EtcTool status ${result.status}`);
             if (result.status !== 0) {
+                console.log(`EtcTool status ${result.status}`);
                 throw result.error ? result.error : new Error(`EtcTool exit status: ${result.status}`);
             }
 
@@ -33,7 +33,12 @@ module.exports = {
 }
 
 function executable() {
-    const etc2comp = bins[`etc2comp-${process.platform}`];
+    let binName = `etc2comp-${process.platform}`;
+    if (process.platform === 'darwin') {
+        binName = `${binName}-${process.arch}`
+    }
+    const etc2comp = bins[binName];
+
     if (etc2comp) {
         return path.resolve(__dirname, etc2comp);
     } else {

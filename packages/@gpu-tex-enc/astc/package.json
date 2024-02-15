@@ -38,9 +38,6 @@
   "dependencies": {
     "cpu-features": "^0.0.9"
   },
-  "devDependencies": {
-    "@types/node": "^18.11.18"
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

@@ -18,10 +18,8 @@
   "bin": {
     "etc2comp-linux": "./bin/linux/EtcTool",
     "etc2comp-win32": "./bin/win32/EtcTool.exe",
-    "etc2comp-darwin": "./bin/darwin/EtcTool"
-  },
-  "devDependencies": {
-    "@types/node": "^18.11.18"
+    "etc2comp-darwin-x64": "bin/darwin-x64/EtcTool",
+    "etc2comp-darwin-arm64": "bin/darwin-arm64/EtcTool"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
