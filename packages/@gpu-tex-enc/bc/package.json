@@ -1,6 +1,6 @@
 {
   "name": "@gpu-tex-enc/bc",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Compressing images using the BC1 (DXT1), BC2 (DXT3), BC3 (DXT5), BC4, BC5 & BC7 texture compression standard.",
   "main": "index.js",
   "types": "types.d.ts",

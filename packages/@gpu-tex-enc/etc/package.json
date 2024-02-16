@@ -1,6 +1,6 @@
 {
   "name": "@gpu-tex-enc/etc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Compressing images using the ETC & ETC2 texture compression standard.",
   "main": "index.js",
   "types": "types.d.ts",
