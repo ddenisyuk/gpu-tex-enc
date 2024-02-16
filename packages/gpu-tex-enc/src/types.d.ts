@@ -25,13 +25,18 @@ export type OutputOptions = {
     'BC3'?: BcOptions,
     'BC4'?: BcOptions,
     'BC5'?: BcOptions,
+    'BC7'?: BcOptions,
     'ETC1'?: EtcOptions,
     'RGB8'?: EtcOptions,
     'SRGB8'?: EtcOptions,
     'RGBA8'?: EtcOptions,
+    'SRGBA8'?: EtcOptions,
     'RGB8A1'?: EtcOptions,
     'SRGB8A1'?: EtcOptions,
     'R11'?: EtcOptions
+    'SIGNED_R11'?: EtcOptions
+    'RG11'?: EtcOptions
+    'SIGNED_RG11'?: EtcOptions
 };
 
 export function generate(input: string, outputOptions: OutputOptions): Promise<string>;

@@ -10,7 +10,6 @@ async function generate(input, outputOptions) {
         const opts = outputOptions[type];
         switch (type) {
             case 'BC1':
-            case 'BC2':
             case 'BC3':
             case 'BC4':
             case 'BC5':
@@ -22,9 +21,14 @@ async function generate(input, outputOptions) {
             case 'RGB8':
             case 'SRGB8':
             case 'RGBA8':
+            case 'SRGBA8':
             case 'RGB8A1':
             case 'SRGB8A1':
-            case 'R11': {
+            case 'R11':
+            case 'SIGNED_R11':
+            case 'RG11':
+            case 'SIGNED_RG11':
+            {
                 results[type] = await generateETC(input, type, opts.effort, opts.errormetric, opts.options);
                 break;
             }

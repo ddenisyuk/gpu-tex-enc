@@ -19,7 +19,7 @@ const argv = yargs(hideBin(process.argv))
             requiresArg: true,
             required: true,
             array: true,
-            choices: ['ETC1', 'RGB8', 'SRGB8', 'RGBA8', 'RGB8A1', 'SRGB8A1', 'R11', 'ASTC', 'BC1', 'BC2', 'BC3', 'BC4', 'BC5', 'BC7']
+            choices: ['ETC1', 'RGB8', 'SRGB8', 'RGBA8', 'SRGBA8', 'RGB8A1', 'SRGB8A1', 'R11', 'SIGNED_R11', 'RG11', 'SIGNED_RG11', 'ASTC', 'BC1', 'BC3', 'BC4', 'BC5', 'BC7']
         },
         'astc.blockSize': {
             description: "<blockSize> [astcenc] The block size must be a valid ASTC block size",
@@ -72,7 +72,6 @@ for (const type of argv.types) {
     outputOptions[type] = {};
     switch (type) {
         case 'BC1':
-        case 'BC2':
         case 'BC3':
         case 'BC4':
         case 'BC5':
@@ -86,9 +85,13 @@ for (const type of argv.types) {
         case 'RGB8':
         case 'SRGB8':
         case 'RGBA8':
+        case 'SRGBA8':
         case 'RGB8A1':
         case 'SRGB8A1':
-        case 'R11': {
+        case 'R11':
+        case 'SIGNED_R11':
+        case 'RG11':
+        case 'SIGNED_RG11': {
             if (argv.etc) {
                 outputOptions[type] = argv.etc;
             }
