@@ -1,0 +1,45 @@
+{
+  "name": "@gpu-tex-enc/basis",
+  "version": "1.16.3",
+  "description": "Compressing images using the Basis Universal Supercompressed GPU Texture Codec.",
+  "main": "index.js",
+  "types": "types.d.ts",
+  "keywords": [
+    "compression",
+    "image-compression",
+    "basis",
+    "basisu",
+    "supercompressed",
+    "GPUTexEncoder"
+  ],
+  "author": "Denys Denysiuk <denisyuk.d@gmail.com>",
+  "license": "Apache-2.0",
+  "bin": {
+    "basisu-linux-x64": "./bin/linux-x64/basisu",
+    "basisu-linux-x64-sse": "./bin/linux-x64/basisu-sse",
+    "basisu-linux-arm64": "./bin/linux-arm64/basisu",
+    "basisu-linux-arm64-sse": "./bin/linux-arm64/basisu",
+
+    "basisu-win32-x64": "./bin/win32-x64/basisu.exe",
+    "basisu-win32-x64-sse": "./bin/win32-x64/basisu-sse.exe",
+
+    "basisu-darwin-x64": "./bin/darwin-x64/basisu",
+    "basisu-darwin-x64-sse": "./bin/darwin-x64/basisu-sse",
+
+    "basisu-darwin-arm64": "./bin/darwin-arm64/basisu",
+    "basisu-darwin-arm64-sse": "./bin/darwin-arm64/basisu"
+  },
+  "dependencies": {
+    "cpu-features": "^0.0.9"
+  },
+  "scripts": {
+    "release": "npm publish --access public"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ddenisyuk/gpu-tex-enc.git"
+  }
+}

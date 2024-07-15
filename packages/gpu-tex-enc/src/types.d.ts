@@ -1,6 +1,7 @@
 import {BlockSize, ColorProfile, Quality} from '@gpu-tex-enc/astc'
 import {ErrorMetric, Format} from '@gpu-tex-enc/etc'
 import {Type} from '@gpu-tex-enc/bc'
+import {Type as BasisType} from '@gpu-tex-enc/basis'
 
 export type AstcOptions = {
     blocksize?: BlockSize,
@@ -16,6 +17,10 @@ export type EtcOptions = {
 };
 
 export type BcOptions = {
+    options?: string[]
+};
+
+export type BasisOptions = {
     options?: string[]
 };
 
@@ -37,6 +42,8 @@ export type OutputOptions = {
     SIGNED_R11?: EtcOptions
     RG11?: EtcOptions
     SIGNED_RG11?: EtcOptions
+    UASTC?: BasisOptions
+    ETC1S?: BasisOptions
 };
 
 export type GenerationOutput = {
@@ -57,6 +64,8 @@ export type GenerationOutput = {
     SIGNED_R11?: string
     RG11?: string
     SIGNED_RG11?: string
+    UASTC?: string
+    ETC1S?: string
 };
 
 
@@ -67,3 +76,5 @@ export function generateBC(input: string, type?: Type, adjust?: boolean, options
 export function generateASTC(input: string, blockSize?: BlockSize, quality?: Quality, colorProfile?: ColorProfile, options?: string[]): Promise<string>;
 
 export function generateETC(input: string, format?: Format, effort?: number, errormetric?: ErrorMetric, options?: string[]): Promise<string>;
+
+export function generateBasis(input: string, type?: BasisType, ktx2?: boolean, options?: string[]): Promise<string>;

@@ -1,8 +1,10 @@
 const bcenc = require('@gpu-tex-enc/bc');
 const astcenc = require('@gpu-tex-enc/astc');
 const etcenc = require('@gpu-tex-enc/etc');
+const basis = require('@gpu-tex-enc/basis');
 const sharp = require('sharp');
 const fs = require("fs");
+const fsPath = require("path");
 
 async function generate(input, outputOptions) {
     const results = {};
@@ -36,6 +38,12 @@ async function generate(input, outputOptions) {
                 results[type] = await generateASTC(input, opts.blocksize, opts.quality, opts.colorProfile, opts.options);
                 break;
             }
+            case 'UASTC':
+            case 'ETC1S':
+            {
+                results[type] = await generateBasis(input, type, opts.ktx2, opts.options);
+                break;
+            }
             default: {
                 console.warn(`Unsupported output type: ${type}`);
             }
@@ -58,6 +66,10 @@ async function generateASTC(input, blocksize, quality, colorProfile, options) {
 
 async function generateETC(input, format, effort, errormetric, options) {
     return etcenc.generate(input, format, effort, errormetric, options);
+}
+
+async function generateBasis(input, format, ktx2, options) {
+    return basis.generate(fsPath.resolve(input), format, ktx2, options);
 }
 
 async function adjustAndGenerate(input, type, options) {
@@ -95,5 +107,6 @@ module.exports = {
     generate,
     generateBC,
     generateASTC,
-    generateETC
+    generateETC,
+    generateBasis
 };

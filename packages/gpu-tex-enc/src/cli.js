@@ -19,7 +19,7 @@ const argv = yargs(hideBin(process.argv))
             requiresArg: true,
             required: true,
             array: true,
-            choices: ['ETC1', 'RGB8', 'SRGB8', 'RGBA8', 'SRGBA8', 'RGB8A1', 'SRGB8A1', 'R11', 'SIGNED_R11', 'RG11', 'SIGNED_RG11', 'ASTC', 'BC1', 'BC3', 'BC4', 'BC5', 'BC7']
+            choices: ['ETC1', 'RGB8', 'SRGB8', 'RGBA8', 'SRGBA8', 'RGB8A1', 'SRGB8A1', 'R11', 'SIGNED_R11', 'RG11', 'SIGNED_RG11', 'ASTC', 'BC1', 'BC3', 'BC4', 'BC5', 'BC7', 'ETC1S', 'UASTC']
         },
         'astc.blockSize': {
             description: "<blockSize> [astcenc] The block size must be a valid ASTC block size",
@@ -64,7 +64,17 @@ const argv = yargs(hideBin(process.argv))
             description: "<options> [etc2comp] another options, see etc2comp official documentation",
             array: true,
             default: ['-j', require('os').cpus().length]
-        }
+        },
+        'basis.ktx2': {
+            description: "<boolean> Result file type, `.ktx2` if `true`, `.basis` otherwise",
+            boolean: true,
+            default: true
+        },
+        'basis.options': {
+            description: "<options> [basisu] options, see basisu official documentation",
+            array: true,
+            default: ['-uastc_level', '4', '-uastc_rdo_l', '0.75', '-ktx2_no_zstandard']
+        },
     }).argv;
 
 const outputOptions = {};
@@ -100,6 +110,13 @@ for (const type of argv.types) {
         case 'ASTC': {
             if (argv.astc) {
                 outputOptions[type] = argv.astc;
+            }
+            break;
+        }
+        case 'UASTC':
+        case 'ETC1S': {
+            if (argv.basis) {
+                outputOptions[type] = argv.basis;
             }
             break;
         }
