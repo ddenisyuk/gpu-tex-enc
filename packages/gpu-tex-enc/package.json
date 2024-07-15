@@ -1,6 +1,6 @@
 {
   "name": "gpu-tex-enc",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "API and CLI for compressing images using the ASTC, ETC, ETC2, BCn (DXTn) and BASIS texture compression standard.",
   "bin": {
     "gputexenc": "./src/cli.js"

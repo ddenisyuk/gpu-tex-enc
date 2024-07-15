@@ -1,16 +1,16 @@
 # gpu-tex-enc
 
-API and CLI for compressing images using the ASTC, ETC, ETC2, BCn (DXTn) texture compression standard.
+API and CLI for compressing images using the ASTC, ETC, ETC2, BCn (DXTn) and Basis supercompressed (ETC1S, UASTC) texture compression standard.
 
 ## Description
 
-`gpu-tex-enc` is a comprehensive Node.js module that provides both an API and a command-line interface (CLI) for compressing images using various texture compression standards including ASTC, ETC, ETC2, and BCn (DXTn). It's designed to cater to the needs of graphics programming, game development, and any applications requiring efficient texture storage and bandwidth optimization.
+`gpu-tex-enc` is a comprehensive Node.js module that provides both an API and a command-line interface (CLI) for compressing images using various texture compression standards including ASTC, ETC, ETC2, BCn (DXTn), ETC1S, UASTC. It's designed to cater to the needs of graphics programming, game development, and any applications requiring efficient texture storage and bandwidth optimization.
 
 ## Features
 
-- Supports multiple compression standards: ASTC, ETC, ETC2, BCn (DXTn).
+- Supports multiple compression standards: ASTC, ETC, ETC2, BCn (DXTn), UASTC, ETC1S.
 - Easy-to-use API and CLI for versatile image compression tasks.
-- Integrates with `@gpu-tex-enc/astc`, `@gpu-tex-enc/bc`, and `@gpu-tex-enc/etc` modules.
+- Integrates with `@gpu-tex-enc/astc`, `@gpu-tex-enc/bc`, `@gpu-tex-enc/etc` and `@gpu-tex-enc/basis` modules.
 
 ## Installation
 
@@ -45,6 +45,7 @@ gputexenc [options]
 - `@gpu-tex-enc/astc`: For ASTC compression.
 - `@gpu-tex-enc/bc`: For BCn compression.
 - `@gpu-tex-enc/etc`: For ETC and ETC2 compression.
+- `@gpu-tex-enc/basis`: For ETC1S and UASTC Basis supercompressed textures.
 - `sharp` (optional): For additional image processing capabilities.
 
 ## Requirements
