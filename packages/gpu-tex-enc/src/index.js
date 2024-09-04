@@ -2,7 +2,6 @@ const bcenc = require('@gpu-tex-enc/bc');
 const astcenc = require('@gpu-tex-enc/astc');
 const etcenc = require('@gpu-tex-enc/etc');
 const basis = require('@gpu-tex-enc/basis');
-const sharp = require('sharp');
 const fs = require("fs");
 const fsPath = require("path");
 
@@ -73,32 +72,39 @@ async function generateBasis(input, format, ktx2, options) {
 }
 
 async function adjustAndGenerate(input, type, options) {
-    const img = sharp(input);
+    try {
+        const sharp = require('sharp');
 
-    const metadata = await img.metadata();
-    const right = metadata.width % 4 !== 0 ? 4 - (metadata.width % 4) : 0;
-    const bottom = metadata.height % 4 !== 0 ? 4 - (metadata.height % 4) : 0;
+        const img = sharp(input);
 
-    if (right > 0 || bottom > 0) {
-        const adjustedInput = `${input}.aj`;
-        try {
-            await img
-                .extend({
-                    bottom: bottom,
-                    right: right,
-                    background: {r: 0, g: 0, b: 0, alpha: 0}
-                })
-                .toFile(adjustedInput);
+        const metadata = await img.metadata();
+        const right = metadata.width % 4 !== 0 ? 4 - (metadata.width % 4) : 0;
+        const bottom = metadata.height % 4 !== 0 ? 4 - (metadata.height % 4) : 0;
 
-            return bcenc.generate(adjustedInput, type, options);
-        } catch (err) {
-            console.error("Failed to adjust image", err);
-            throw err;
-        } finally {
-            fs.rmSync(adjustedInput);
+        if (right > 0 || bottom > 0) {
+            const adjustedInput = `${input}.aj`;
+            try {
+                await img
+                    .extend({
+                        bottom: bottom,
+                        right: right,
+                        background: {r: 0, g: 0, b: 0, alpha: 0}
+                    })
+                    .toFile(adjustedInput);
+
+                return bcenc.generate(adjustedInput, type, options);
+            } catch (err) {
+                console.error("Failed to adjust image", err);
+                throw err;
+            } finally {
+                fs.rmSync(adjustedInput);
+            }
+        } else {
+            return bcenc.generate(input, type, options);
         }
-    } else {
-        return bcenc.generate(input, type, options);
+    } catch (e) {
+        console.error("`sharp` not found. Install `sharp` or disable adjustment.");
+        throw e;
     }
 }
 

@@ -1,6 +1,5 @@
 const childProcess = require('child_process');
 const path = require("path");
-const features = require('cpu-features')();
 const bins = require('./package.json').bin;
 
 module.exports = {
@@ -44,12 +43,20 @@ function executable() {
 }
 
 function resolveCpuFeatures() {
-    if ((features.flags['avx'] || features.flags['avx2'])
-        && features.flags['sse4_2'] && features.flags['popcnt'] && features.flags['f16c']) {
-        return 'avx2';
-    } else if (features.flags['sse4_1'] && features.flags['popcnt']) {
-        return 'sse4.1';
-    } else {
-        return 'sse2';
+    try {
+        const cpuFeatures = require('cpu-features');
+        if (cpuFeatures) {
+            const features = cpuFeatures();
+            if ((features.flags['avx'] || features.flags['avx2'])
+                && features.flags['sse4_2'] && features.flags['popcnt'] && features.flags['f16c']) {
+                return 'avx2';
+            } else if (features.flags['sse4_1'] && features.flags['popcnt']) {
+                return 'sse4.1';
+            }
+        }
+    } catch (e) {
+        console.warn("`cpu-features` not found, will use sse2 bin.")
     }
+
+    return 'sse2';
 }

@@ -1,6 +1,6 @@
 {
   "name": "@gpu-tex-enc/basis",
-  "version": "1.16.3",
+  "version": "1.16.4",
   "description": "Compressing images using the Basis Universal Supercompressed GPU Texture Codec.",
   "main": "index.js",
   "types": "types.d.ts",
@@ -29,8 +29,8 @@
     "basisu-darwin-arm64": "./bin/darwin-arm64/basisu",
     "basisu-darwin-arm64-sse": "./bin/darwin-arm64/basisu"
   },
-  "dependencies": {
-    "cpu-features": "^0.0.9"
+  "optionalDependencies": {
+    "cpu-features": "^0.0.10"
   },
   "scripts": {
     "release": "npm publish --access public"

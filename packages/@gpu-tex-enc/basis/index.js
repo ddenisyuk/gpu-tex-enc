@@ -1,7 +1,5 @@
 const childProcess = require('child_process');
 const path = require("path");
-const fs = require("fs");
-const features = require('cpu-features')();
 const bins = require('./package.json').bin;
 
 module.exports = {
@@ -55,8 +53,16 @@ function executable() {
 }
 
 function resolveCpuFeatures() {
-    if (features.flags['sse4_1']) {
-        return "sse"
+    try {
+        const cpuFeatures = require('cpu-features');
+        if (cpuFeatures) {
+            const features = cpuFeatures();
+            if (features.flags['sse4_1']) {
+                return "sse"
+            }
+        }
+    } catch (e) {
+        console.warn("`cpu-features` not found, will use default bin.")
     }
     return null;
 }

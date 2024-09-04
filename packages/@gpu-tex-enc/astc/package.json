@@ -1,6 +1,6 @@
 {
   "name": "@gpu-tex-enc/astc",
-  "version": "4.7.0",
+  "version": "4.7.1",
   "description": "Compressing images using the ASTC texture compression standard.",
   "main": "index.js",
   "types": "types.d.ts",
@@ -30,8 +30,8 @@
     "astcenc-darwin-arm64-sse2": "./bin/darwin/astcenc",
     "astcenc-darwin-arm64-sse4.1": "./bin/darwin/astcenc"
   },
-  "dependencies": {
-    "cpu-features": "^0.0.9"
+  "optionalDependencies": {
+    "cpu-features": "^0.0.10"
   },
   "scripts": {
     "release": "npm publish --access public"
